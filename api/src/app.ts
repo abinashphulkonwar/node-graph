@@ -1,16 +1,18 @@
 import express from "express";
 import { GetNodesRouter } from "./routes/get-node-route";
+import { CreateNodeRouter } from "./routes/create-node-route";
 
 const app = express();
+
+app.use(express.json());
 
 app.use(
   "/api/get",
 
   GetNodesRouter
 );
-app.use("/api/get/list", (req, res) => {
-  res.status(404).send("not found");
-});
+app.use("/api/create", CreateNodeRouter);
+
 app.use(
   "*",
   express.static("../app", {
