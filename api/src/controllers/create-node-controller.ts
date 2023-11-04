@@ -7,6 +7,6 @@ export const CreateNode = async (
   next: NextFunction
 ) => {
   const node = Nodedb.build(req.body);
-  //  await node.save();
+  await node.save();
   res.json(node);
 };

@@ -6,9 +6,16 @@ export const GetnodeList = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { current, limit } = req.params;
+  const query = req.query as {
+    current: string;
+    limit: string;
+  };
+  const current = +query?.current || 0;
+  const limit = +query?.limit || 20;
+  console.log(typeof current, typeof limit);
   if (typeof current != "number" || typeof limit != "number")
     throw new Error("query params are not number");
+
   const nodes = await Nodedb.find({})
     .select({
       _id: 1,
@@ -18,6 +25,7 @@ export const GetnodeList = async (
     })
     .skip(current)
     .limit(limit)
+
     .lean();
 
   res.json({
