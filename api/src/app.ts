@@ -6,6 +6,7 @@ import path from "path";
 const app = express();
 
 //if (process.env.NODE_ENV != "production") {
+
 import livereload from "livereload";
 import connectLiveReload from "connect-livereload";
 const static_path = path.join(__dirname, "../../app");
@@ -30,6 +31,6 @@ app.use(
 );
 app.use("/api/create", CreateNodeRouter);
 
-app.use("/app", express.static(static_path));
+app.use(express.static(static_path));
 
 export { app };
