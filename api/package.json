@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "ts": "tsc --watch",
-    "dev": "nodemon  dist/index.js -e js,hbs,json "
+    "dev": "nodemon  dist/index.js -e js,hbs,json,tsx "
   },
   "nodemonConfig": {
     "ignore": [
@@ -14,7 +14,7 @@
     ],
     "watch": [
       "dist/",
-      "../app/"
+      "app/src/"
     ]
   },
   "author": "abinash phulkonwar",
@@ -30,6 +30,8 @@
     "@types/connect-livereload": "^0.6.2",
     "@types/express": "^4.17.20",
     "@types/livereload": "^0.9.4",
+    "@types/react": "^18.2.36",
+    "@types/react-dom": "^18.2.14",
     "connect-livereload": "^0.6.1",
     "livereload": "^0.9.3",
     "nodemon": "^3.0.1"
