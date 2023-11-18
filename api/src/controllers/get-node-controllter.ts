@@ -10,9 +10,10 @@ export const GetnodeList = async (
     current: string;
     limit: string;
   };
+
   const current = +query?.current || 0;
   const limit = +query?.limit || 20;
-  console.log(typeof current, typeof limit);
+
   if (typeof current != "number" || typeof limit != "number")
     throw new Error("query params are not number");
 
